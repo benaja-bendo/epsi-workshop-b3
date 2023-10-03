@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Association extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'image',
+        'logo',
+        'author',
+        'category_id',
+    ];
 }

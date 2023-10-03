@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Models\Association;
 
 class AssociationController extends Controller
 {
@@ -12,9 +13,14 @@ class AssociationController extends Controller
     public function index()
     {
         $categories = \App\Models\Category::all();
+        $associations = \App\Models\Association::all();
+
+        
 
         return Inertia::render('Associations', [
-            'categories' => $categories
+            //'categories' => $options,
+            'categories' => $categories,
+            'associations' => $associations
         ]);//
 
     }
@@ -24,7 +30,11 @@ class AssociationController extends Controller
      */
     public function create()
     {
-        //
+        $categories = \App\Models\Category::all();
+
+        return Inertia::render('CreateAssociation',[
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -32,7 +42,25 @@ class AssociationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required','max:255'],
+            'author' => ['required','max:25500'],
+            'description' => ['required','max:255'],
+            'category_id' => ['required']
+            //'image' => ['required','max:2550']
+        ]);
+
+        
+
+        $association = Association::create([
+            'name' => $request->name,
+            'author' => $request->author,
+            'description' => $request->description,
+            'category_id' => $request->category_id,
+            'image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Bobby_Brown_on_Sister_Circle_Live.jpg/640px-Bobby_Brown_on_Sister_Circle_Live.jpg',
+            'logo' => 'https://upload.wikimedia.org/wikipedia/fr/thumb/5/5f/Ville_de_Bordeaux_%28logo%29.svg/1200px-Ville_de_Bordeaux_%28logo%29.svg.png'
+        ]);
+        return redirect()->route('associations.index');
     }
 
     /**
@@ -40,7 +68,7 @@ class AssociationController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**
@@ -48,7 +76,11 @@ class AssociationController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $association = Association::findOrfail($id);
+        return Inertia::render('EditAssociations', [
+            'association' => $association
+        ]);//
+        
     }
 
     /**
