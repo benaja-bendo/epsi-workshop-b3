@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('bon_plans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained();
             $table->string('name');
             $table->string('description');
             $table->string('image');
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */

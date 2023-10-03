@@ -39,6 +39,7 @@ Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('
 Route::put('/categories/edit/{id}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
+Route::get('/BonPlan', [BonPlanController::class, 'index'])->name('BonPlan.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -46,4 +47,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
