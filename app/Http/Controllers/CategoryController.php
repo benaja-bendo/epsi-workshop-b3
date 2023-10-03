@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class CategoryCrontroller extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +29,15 @@ class CategoryCrontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'max:255'],
+        ]);
+
+        $category = Category::create([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('categories.create')->with('success', 'Category created.');
     }
 
     /**
@@ -44,7 +53,7 @@ class CategoryCrontroller extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return Inertia::render('CreateCategory');
     }
 
     /**
