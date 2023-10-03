@@ -36,6 +36,12 @@ Route::delete('/categories/delete/{id}', [CategoryController::class, 'destroy'])
 Route::get('/BonPlan', [\App\Http\Controllers\BonPlanController::class, 'index'])->name('BonPlan.index');
 
 Route::get('/search', \App\Http\Controllers\SearchController::class)->name('search');
+Route::get('/associations', [AssociationController::class, 'index'])->name('associations.index');
+Route::get('/associations/create', [AssociationController::class, 'create'])->name('associations.create');
+Route::post('/associations/create', [AssociationController::class, 'store'])->name('associations.store');
+Route::get('/associations/edit/{id}', [AssociationController::class, 'edit'])->name('associations.edit');
+Route::put('/associations/edit/{id}', [AssociationController::class, 'update'])->name('associations.update');
+Route::delete('/associations/delete/{id}', [AssociationController::class, 'destroy'])->name('associations.destroy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
