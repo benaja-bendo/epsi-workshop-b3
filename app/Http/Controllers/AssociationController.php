@@ -77,7 +77,7 @@ class AssociationController extends Controller
     public function edit(string $id)
     {
         $association = Association::findOrfail($id);
-        return Inertia::render('EditAssociations', [
+        return Inertia::render('EditAssociation', [
             'association' => $association
         ]);//
         
@@ -88,7 +88,24 @@ class AssociationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => ['required','max:255'],
+            'author' => ['required','max:25500'],
+            'description' => ['required','max:255'],
+            'category_id' => ['required']
+        ]);
+
+        $association = Association::findOrfail($id);
+        $association->update([
+            'name' => $request->name,
+            'author' => $request->author,
+            'description' => $request->description,
+            'category_id' => $request->category_id,
+            'image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Bobby_Brown_on_Sister_Circle_Live.jpg/640px-Bobby_Brown_on_Sister_Circle_Live.jpg',
+            'logo' => 'https://upload.wikimedia.org/wikipedia/fr/thumb/5/5f/Ville_de_Bordeaux_%28logo%29.svg/1200px-Ville_de_Bordeaux_%28logo%29.svg.png'
+        ]);
+
+        return redirect()->route('associations.index');
     }
 
     /**
@@ -96,6 +113,8 @@ class AssociationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $association = Association::findOrfail($id);
+        $association->delete();
+        return redirect()->route('associations.index');
     }
 }
