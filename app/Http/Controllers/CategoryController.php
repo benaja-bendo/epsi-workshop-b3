@@ -13,7 +13,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        return Inertia::render('Category', [
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -37,7 +41,7 @@ class CategoryController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('categories.create')->with('success', 'Category created.');
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -53,7 +57,10 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        return Inertia::render('CreateCategory');
+        $category = Category::findOrfail($id);
+        return Inertia::render('EditCategory', [
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -61,7 +68,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'max:255'],
+        ]);
+
+        $category = Category::findOrfail($id);
+        $category->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -69,6 +85,8 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::findOrfail($id);
+        $category->delete();
+        return redirect()->route('categories.index');
     }
 }
