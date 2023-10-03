@@ -18,14 +18,8 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -39,7 +33,9 @@ Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('
 Route::put('/categories/edit/{id}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
-Route::get('/BonPlan', [BonPlanController::class, 'index'])->name('BonPlan.index');
+Route::get('/BonPlan', [\App\Http\Controllers\BonPlanController::class, 'index'])->name('BonPlan.index');
+
+Route::get('/search', \App\Http\Controllers\SearchController::class)->name('search');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -47,4 +43,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
