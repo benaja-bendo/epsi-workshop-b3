@@ -6,8 +6,9 @@ export default function Associations(props) {
         <>
             <Head title="Associations" />
             <div> 
-                {categories.map((categorie) =>
-                <p>{categorie}</p>)}
+                {categories.map((categorie) => (
+                <p key={categorie.id}>{categorie.name}</p>
+                ))}
             </div>
         </>
     );
