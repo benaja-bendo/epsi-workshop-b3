@@ -5,7 +5,7 @@ export default function Associations(props) {
     return (
         <>
             <Head title="Associations" />
-            <div className="flex gap-2">
+            <div>
                 {categories.map((categorie) => (
                     <p key={categorie.id}>{categorie.name}</p>
                 ))}

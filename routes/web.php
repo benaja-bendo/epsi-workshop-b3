@@ -32,6 +32,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/associations', [AssociationController::class, 'index'])->name('associations.index');
+Route::get('/categories', [CategoryController::class, 'store'])->name('categories.store');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
