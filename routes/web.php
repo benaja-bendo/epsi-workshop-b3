@@ -26,12 +26,21 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/associations', [AssociationController::class, 'index'])->name('associations.index');
+
+Route::get('/BonPlan', [BonPlanController::class, 'index'])->name('BonPlan.index');
+Route::get('/BonPlan/create', [BonPlanController::class, 'create'])->name('BonPlan.create');
+Route::post('/BonPlan/create', [BonPlanController::class, 'store'])->name('BonPlan.store');
+Route::get('/BonPlan/edit/{id}', [BonPlanController::class, 'edit'])->name('BonPlan.edit');
+Route::put('/BonPlan/edit/{id}', [BonPlanController::class, 'update'])->name('BonPlan.update');
+Route::delete('/BonPlan/delete/{id}', [BonPlanController::class, 'destroy'])->name('BonPlan.destroy');
+
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
 Route::post('/categories/create', [CategoryController::class, 'store'])->name('categories.store');
 Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/edit/{id}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
 
 Route::get('/BonPlan', [\App\Http\Controllers\BonPlanController::class, 'index'])->name('BonPlan.index');
 
