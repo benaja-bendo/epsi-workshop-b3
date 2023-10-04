@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AssociationController;
+use App\Http\Controllers\BonPlanController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -42,7 +43,7 @@ Route::put('/categories/edit/{id}', [CategoryController::class, 'update'])->name
 Route::delete('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
 
-Route::get('/BonPlan', [\App\Http\Controllers\BonPlanController::class, 'index'])->name('BonPlan.index');
+// Route::get('/BonPlan', [\App\Http\Controllers\BonPlanController::class, 'index'])->name('BonPlan.index');
 
 Route::get('/search', \App\Http\Controllers\SearchController::class)->name('search');
 Route::get('/associations', [AssociationController::class, 'index'])->name('associations.index');
