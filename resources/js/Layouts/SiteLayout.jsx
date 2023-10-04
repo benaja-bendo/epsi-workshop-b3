@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Link} from "@inertiajs/react";
+import logo from '../Pages/logo.png';
 
 export default function SiteLayout(props) {
     const {auth, children} = props;
@@ -34,7 +35,12 @@ export default function SiteLayout(props) {
                     </div>
                     <Link
                         href="/"
-                        className="text-purple-600 text-center lg:text-start">ASSO & GOODIES</Link>
+                        className="text-purple-600 text-center lg:text-start flex items-center">
+                        <img src={logo} alt="logo_app" width={50} height={50}/>
+                        {/*<span>*/}
+                        {/*    ASSO & GOODIES*/}
+                        {/*</span>*/}
+                    </Link>
 
                     <Link
                         href={route('search')}
