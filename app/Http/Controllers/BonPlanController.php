@@ -10,6 +10,13 @@ use App\Models\Category;
 
 class BonPlanController extends Controller
 {
+    public function list()
+    {
+        $bonplans = \App\Models\BonPlan::all();
+        return Inertia::render('ListBonPlan', [
+            'BonPlan' => $bonplans
+        ]);
+    }
     /**
      * Display a listing of the resource.
      */

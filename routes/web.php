@@ -54,6 +54,7 @@ Route::put('/associations/edit/{id}', [AssociationController::class, 'update'])-
 Route::delete('/associations/delete/{id}', [AssociationController::class, 'destroy'])->name('associations.destroy');
 
 Route::get('/associations/list', [AssociationController::class, 'list'])->name('associations.list');
+Route::get('/BonPlan/list', [BonPlanController::class, 'list'])->name('BonPlan.list');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
