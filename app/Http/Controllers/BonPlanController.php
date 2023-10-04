@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\BonPlan;
 
 class BonPlanController extends Controller
 {
@@ -13,9 +14,11 @@ class BonPlanController extends Controller
      */
     public function index()
     {
-        //
+        $categories = \App\Models\Category::all();
         $BonPlan = \App\Models\BonPlan::all();
+
         return Inertia::render('BonPlan',[
+            'categories' => $categories,
             'bonplans' => $BonPlan,
         ]);
     }
@@ -26,6 +29,11 @@ class BonPlanController extends Controller
     public function create()
     {
         //
+        $categories = \App\Models\Category::all();
+
+        return Inertia::render('CreateBonPlan',[
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -34,6 +42,21 @@ class BonPlanController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => ['required','max:255'],
+            'description' => ['required','max:255'],
+            'category_id' => ['required']
+            //'image' => ['required','max:2550']
+        ]);
+
+        $bonPlan = BonPlan::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'category_id' => $request->category_id,
+            'image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Bobby_Brown_on_Sister_Circle_Live.jpg/640px-Bobby_Brown_on_Sister_Circle_Live.jpg',
+            // 'logo' => 'https://upload.wikimedia.org/wikipedia/fr/thumb/5/5f/Ville_de_Bordeaux_%28logo%29.svg/1200px-Ville_de_Bordeaux_%28logo%29.svg.png'
+        ]);
+        return redirect()->route('BonPlan.index');
     }
 
     /**
@@ -50,6 +73,10 @@ class BonPlanController extends Controller
     public function edit(string $id)
     {
         //
+        $BonPlan = BonPlan::findOrfail($id);
+        return Inertia::render('EditBonPlan', [
+            'BonPlan' => $BonPlan
+        ]);//
     }
 
     /**
@@ -58,6 +85,7 @@ class BonPlanController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        
     }
 
     /**
@@ -66,5 +94,8 @@ class BonPlanController extends Controller
     public function destroy(string $id)
     {
         //
+        $BonPlan = BonPlan::findOrfail($id);
+        $BonPlan->delete();
+        return redirect()->route('BonPlan.index');
     }
 }

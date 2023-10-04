@@ -34,6 +34,11 @@ Route::get('/dashboard', function () {
 
 Route::get('/associations', [AssociationController::class, 'index'])->name('associations.index');
 Route::get('/BonPlan', [BonPlanController::class, 'index'])->name('BonPlan.index');
+Route::get('/BonPlan/create', [BonPlanController::class, 'create'])->name('BonPlan.create');
+Route::post('/BonPlan/create', [BonPlanController::class, 'store'])->name('BonPlan.store');
+Route::get('/BonPlan/edit/{id}', [BonPlanController::class, 'edit'])->name('BonPlan.edit');
+Route::put('/BonPlan/edit/{id}', [BonPlanController::class, 'update'])->name('BonPlan.update');
+Route::delete('/BonPlan/delete/{id}', [BonPlanController::class, 'destroy'])->name('BonPlan.destroy');
 
 
 Route::middleware('auth')->group(function () {

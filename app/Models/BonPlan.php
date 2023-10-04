@@ -13,5 +13,6 @@ class BonPlan extends Model
         'name',
         'description',
         'image',
+        'category_id',
     ];
 }
