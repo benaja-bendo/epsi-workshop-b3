@@ -1,8 +1,10 @@
 import {Link, Head, router,useForm} from "@inertiajs/react";
-import {useState} from 'react'
+import {useState} from 'react';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+
 
 export default function EditBonPlan(props) {
-    const {BonPlan,categories} = props;
+    const {BonPlan,categories,auth} = props;
     const {
         data, setData, put
     } = useForm({
@@ -18,6 +20,14 @@ export default function EditBonPlan(props) {
 
     return (
         <>
+        <AuthenticatedLayout
+            user={auth.user}
+            header={<h2
+                className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"></h2>
+                
+            }
+ 
+        >
             <Head title="BonPlan - update"/>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -54,6 +64,7 @@ export default function EditBonPlan(props) {
                     </button>
                 </div>
             </form>
+            </AuthenticatedLayout>
         </>
     );
 }

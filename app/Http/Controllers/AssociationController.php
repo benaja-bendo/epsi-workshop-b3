@@ -8,6 +8,14 @@ use App\Models\Category;
 
 class AssociationController extends Controller
 {
+
+    public function list()
+    {
+        $associations = \App\Models\Association::all();
+        return Inertia::render('ListAssociations', [
+            'associations' => $associations
+        ]);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -16,7 +24,7 @@ class AssociationController extends Controller
         $categories = \App\Models\Category::all();
         $associations = \App\Models\Association::all();
 
-        
+
 
         return Inertia::render('Associations', [
             //'categories' => $options,
@@ -51,7 +59,7 @@ class AssociationController extends Controller
             //'image' => ['required','max:2550']
         ]);
 
-        
+
 
         $association = Association::create([
             'name' => $request->name,
@@ -69,7 +77,7 @@ class AssociationController extends Controller
      */
     public function show(string $id)
     {
-        
+
     }
 
     /**
@@ -83,7 +91,7 @@ class AssociationController extends Controller
             'association' => $association,
             'categories' => $categories
         ]);//
-        
+
     }
 
     /**

@@ -53,6 +53,8 @@ Route::get('/associations/edit/{id}', [AssociationController::class, 'edit'])->n
 Route::put('/associations/edit/{id}', [AssociationController::class, 'update'])->name('associations.update');
 Route::delete('/associations/delete/{id}', [AssociationController::class, 'destroy'])->name('associations.destroy');
 
+Route::get('/associations/list', [AssociationController::class, 'list'])->name('associations.list');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

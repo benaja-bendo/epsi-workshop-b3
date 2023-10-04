@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useForm } from "@inertiajs/react";
-
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 export default function BonPlan(props) {
 
     const {
         data, setData, delete: destroy,
     } = useForm({});
-    const {bonplans} = props
+    const {bonplans, auth} = props
 
     const destroyBonPlan = (id) => {
         if (confirm('Are you sure you want to delete this BonPlan?')) {
@@ -14,6 +14,14 @@ export default function BonPlan(props) {
         }
     }
     return (<>
+    <AuthenticatedLayout
+            user={auth.user}
+            header={<h2
+                className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Bons Plans</h2>
+                
+            }
+ 
+        >
         <h1>
         BonPlan
         </h1>
@@ -43,6 +51,7 @@ export default function BonPlan(props) {
                 </div>)
             })}
         </div>
+        </AuthenticatedLayout>
     </>);
    
 }
