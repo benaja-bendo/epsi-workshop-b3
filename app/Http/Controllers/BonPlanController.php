@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\BonPlan;
+use App\Models\Category;
 
 class BonPlanController extends Controller
 {
@@ -74,9 +75,11 @@ class BonPlanController extends Controller
     {
         //
         $BonPlan = BonPlan::findOrfail($id);
+        $categories = Category::all();
         return Inertia::render('EditBonPlan', [
-            'BonPlan' => $BonPlan
-        ]);//
+            'BonPlan' => $BonPlan,
+            'categories'=> $categories
+        ]);
     }
 
     /**
@@ -84,8 +87,15 @@ class BonPlanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
-        
+        $bonPlan =BonPlan::findOrfail($id);
+        $bonPlan->name = $request->name;
+        $bonPlan->description = $request->description;
+        $bonPlan->image='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Bobby_Brown_on_Sister_Circle_Live.jpg/640px-Bobby_Brown_on_Sister_Circle_Live.jpg';
+        $bonPlan->category_id = $request->category_id;
+        $bonPlan->save();
+
+        return redirect()->route('BonPlan.index');
+
     }
 
     /**
