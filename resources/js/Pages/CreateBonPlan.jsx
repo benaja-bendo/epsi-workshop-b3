@@ -1,11 +1,13 @@
 import {Link, Head, router} from "@inertiajs/react";
-import {useState} from 'react'
+import {useState} from 'react';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+
 
 export default function CreateBonPlan(props) {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [category_id, setCategory_id] = useState('')
-    const {categories} = props
+    const {categories,auth} = props
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -14,6 +16,14 @@ export default function CreateBonPlan(props) {
 
     return (
         <>
+        <AuthenticatedLayout
+            user={auth.user}
+            header={<h2
+                className="font-semibold text-xl text-gray-800 "></h2>
+                
+            }
+ 
+        >
             <Head title="BonPlan - Create"/>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -48,6 +58,7 @@ export default function CreateBonPlan(props) {
                     </button>
                 </div>
             </form>
+            </AuthenticatedLayout>
         </>
     );
 }

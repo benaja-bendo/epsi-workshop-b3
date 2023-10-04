@@ -6,9 +6,14 @@ export default function Dashboard({auth}) {
         <AuthenticatedLayout
             user={auth.user}
             header={<h2
-                className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Notification</h2>}
+                className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Notification</h2>
+                
+            }
+ 
         >
-            <Head title="Notidication"/>
+            
+            <Head title="Notification"/>
+            
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">

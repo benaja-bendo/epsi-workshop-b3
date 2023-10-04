@@ -1,12 +1,13 @@
 import React from "react";
 import {Link, useForm} from "@inertiajs/react";
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 
 
 export default function Category(props) {
     const {
         data, setData, delete: destroy,
     } = useForm({});
-    const {categories} = props
+    const {categories,auth} = props
 
     const destroyCategory = (id) => {
         if (confirm('Are you sure you want to delete this category?')) {
@@ -14,6 +15,14 @@ export default function Category(props) {
         }
     }
     return (<>
+    <AuthenticatedLayout
+            user={auth.user}
+            header={<h2
+                className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Catégories</h2>
+                
+            }
+ 
+        >
         <h1>
             Category
         </h1>
@@ -43,5 +52,6 @@ export default function Category(props) {
                 </div>)
             })}
         </div>
+        </AuthenticatedLayout>
     </>);
 }

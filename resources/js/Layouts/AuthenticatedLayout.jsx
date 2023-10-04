@@ -9,7 +9,7 @@ export default function Authenticated({user, header, children}) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-gray-200">
             <nav className="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
@@ -24,6 +24,21 @@ export default function Authenticated({user, header, children}) {
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Notifications
+                                </NavLink>
+                            </div>
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink href={route('associations.index')} active={route().current('associations.index')}>
+                                    Associations
+                                </NavLink>
+                            </div>
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink href={route('BonPlan.index')} active={route().current('BonPlan.index   ')}>
+                                    Bons Plans
+                                </NavLink>
+                            </div>
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink href={route('categories.index')} active={route().current('categories.index')}>
+                                    Catégories
                                 </NavLink>
                             </div>
                         </div>
