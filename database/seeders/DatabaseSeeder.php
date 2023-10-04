@@ -20,8 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         \App\Models\Category::factory(10)->create();
         \App\Models\BonPlan::factory(10)->create();
-
-
+        \App\Models\Association::factory(10)->create();
 
     }
 }
