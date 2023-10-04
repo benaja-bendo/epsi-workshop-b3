@@ -4,7 +4,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AssociationController;
 use App\Http\Controllers\BonPlanController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\BonPlanController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
