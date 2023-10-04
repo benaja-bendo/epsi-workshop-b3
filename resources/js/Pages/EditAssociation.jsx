@@ -1,5 +1,7 @@
 import {Link, Head, router, useForm} from "@inertiajs/react";
-import {useState} from 'react'
+import {useState} from 'react';
+
+
 
 export default function EditAssociation(props) {
     const {association} = props
@@ -59,6 +61,7 @@ export default function EditAssociation(props) {
                     </button>
                 </div>
             </form>
+           
         </>
     );
 }
