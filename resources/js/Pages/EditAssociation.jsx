@@ -1,12 +1,10 @@
 import {Link, Head, router, useForm} from "@inertiajs/react";
 import {useState} from 'react';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 
-
-import { Link, Head, router, useForm } from "@inertiajs/react";
-import { useState } from "react";
 
 export default function EditAssociation(props) {
-  const { association, categories } = props;
+  const { association, categories,auth } = props;
   const {
     data,
     setData,
@@ -25,6 +23,13 @@ export default function EditAssociation(props) {
 
   return (
     <>
+    <AuthenticatedLayout
+            user={auth.user}
+            header={<h2
+                className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"></h2>
+                
+            }
+        >
       <Head title="Association - Update" />
       <form onSubmit={handleSubmit}>
         <div>
@@ -73,6 +78,7 @@ export default function EditAssociation(props) {
           </button>
         </div>
       </form>
+      </AuthenticatedLayout>
 
   </>
     );
