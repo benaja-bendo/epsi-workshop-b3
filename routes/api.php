@@ -17,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/search', function (Request $request) {
+    $search = $request->input('query');
+
+    $bonplans = \App\Models\BonPlan::query()
+        ->where('name', 'LIKE', "%{$search}%")
+        ->orWhere('description', 'LIKE', "%{$search}%")
+        ->get();
+
+    return response()->json([
+        'results' => $bonplans,
+    ]);
+});
