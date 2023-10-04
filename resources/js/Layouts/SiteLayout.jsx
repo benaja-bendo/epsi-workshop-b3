@@ -107,7 +107,7 @@ export default function SiteLayout(props) {
                     </div>
                 </div>
             </header>
-            <div className="py-6 flex-1">
+            <div className="flex-1">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     {children}
                 </div>

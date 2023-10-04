@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\Association;
@@ -12,10 +13,14 @@ class AssociationController extends Controller
     public function list()
     {
         $associations = \App\Models\Association::all();
+        $categories = \App\Models\Category::all();
+        //dd($associations, $categories);
         return Inertia::render('ListAssociations', [
-            'associations' => $associations
+            'associations' => $associations,
+            'categories' => $categories
         ]);
     }
+
     /**
      * Display a listing of the resource.
      */
@@ -23,7 +28,6 @@ class AssociationController extends Controller
     {
         $categories = \App\Models\Category::all();
         $associations = \App\Models\Association::all();
-
 
 
         return Inertia::render('Associations', [
@@ -41,7 +45,7 @@ class AssociationController extends Controller
     {
         $categories = \App\Models\Category::all();
 
-        return Inertia::render('CreateAssociation',[
+        return Inertia::render('CreateAssociation', [
             'categories' => $categories,
         ]);
     }
@@ -52,13 +56,12 @@ class AssociationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required','max:255'],
-            'author' => ['required','max:25500'],
-            'description' => ['required','max:255'],
+            'name' => ['required', 'max:255'],
+            'author' => ['required', 'max:25500'],
+            'description' => ['required', 'max:255'],
             'category_id' => ['required']
             //'image' => ['required','max:2550']
         ]);
-
 
 
         $association = Association::create([
