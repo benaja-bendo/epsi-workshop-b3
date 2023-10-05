@@ -22,7 +22,6 @@ export default function ListAssociations(props) {
         filterAssociationsByCategory(selectedCategory);
     }, [selectedCategory, associations]);
 
-
     return (<>
         <SiteLayout auth={auth}>
             <Head title="Liste des associations"/>
@@ -52,7 +51,6 @@ export default function ListAssociations(props) {
         </SiteLayout>
     </>);
 }
-
 
 const CardAssociation = ({association}) => {
     const {name, description} = association;

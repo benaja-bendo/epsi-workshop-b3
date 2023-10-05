@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\BonPlan;
@@ -10,17 +9,27 @@ use App\Models\Category;
 
 class BonPlanController extends Controller
 {
+    public function list()
+    {
+        $BonPlans = \App\Models\BonPlan::all();
+        $categories = \App\Models\Category::all();
+        //dd($BonPlan, $categories);
+        return Inertia::render('ListBonPlan', [
+            'BonPlans' => $BonPlans,
+            'categories' => $categories
+        ]);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $categories = \App\Models\Category::all();
-        $BonPlan = \App\Models\BonPlan::all();
+        $BonPlans = \App\Models\BonPlan::all();
 
         return Inertia::render('BonPlan',[
             'categories' => $categories,
-            'bonplans' => $BonPlan,
+            'bonplans' => $BonPlans,
         ]);
     }
 
