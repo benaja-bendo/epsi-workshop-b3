@@ -1,5 +1,7 @@
 import {Link, Head, router} from "@inertiajs/react";
-import {useState} from 'react'
+import {useState} from 'react';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+
 
 export default function CreateCategory(props) {
     const [name, setName] = useState('')
@@ -11,6 +13,7 @@ export default function CreateCategory(props) {
 
     return (
         <>
+        
             <Head title="Category - Create"/>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -27,6 +30,7 @@ export default function CreateCategory(props) {
                     </button>
                 </div>
             </form>
+            
         </>
     );
 }
