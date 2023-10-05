@@ -18,7 +18,7 @@ export default function Home({auth}) {
                     <p>Association</p>
                 </div>
             </Link>
-            <Link id={"bonPlans"} href={route('BonPlan.index')} as='a'>
+            <Link id={"bonPlans"} href={route('BonPlan.list')} as='a'>
                 <div>
                     <img src={bpimg} alt={"image représentant des étudiants qui discutes"}/>
                     <p>Bon Plans</p>
