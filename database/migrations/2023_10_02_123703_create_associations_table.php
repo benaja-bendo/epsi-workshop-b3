@@ -17,8 +17,12 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained();
             $table->string('name');
             $table->longText('description');
-            $table->string('image');
-            $table->string('logo');
+            $table->text('image');
+            $table->text('logo');
+            $table->boolean('is_active')->default(true);
+            $table->string('site-web')->nullable();
+            $table->string('number')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }

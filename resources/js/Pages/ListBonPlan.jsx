@@ -1,3 +1,4 @@
+
 import React from "react";
 import {Head, Link} from "@inertiajs/react";
 import SiteLayout from "@/Layouts/SiteLayout.jsx";
@@ -70,4 +71,5 @@ const CardCategory = ({category, setSelectedCategory}) => {
             onClick={() => setSelectedCategory(category.id)}
             className={"border p-2 rounded-lg"}>{name}</button>
     </>);   
+
 }

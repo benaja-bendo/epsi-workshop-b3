@@ -21,7 +21,6 @@ export default function Association(props) {
                 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Associations</h2>
                 
             }
- 
         >
         <h1>
         Association
@@ -42,11 +41,9 @@ export default function Association(props) {
                                 Edit
                             </button>
                         </Link>
-
                         <button onClick={() => destroyAssociation(association.id)}
                                 className={"bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"}>
                             Delete
-
                         </button>
                     </div>
                 </div>)

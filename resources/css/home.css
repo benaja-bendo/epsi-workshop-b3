@@ -1,0 +1,107 @@
+#home{
+    display: flex;
+    justify-content: center;
+}
+
+.pagehomecenter{
+    height: calc(100vh - 72px);
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+}
+#home img{
+    object-fit: cover;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+
+}
+#association div{
+    height: 100vh;
+    width: 50vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+}
+
+#bonPlans div{
+    border-left: white 4px solid;
+    margin-left: -2px;
+    height: 100vh;
+    width: 50vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+}
+
+#association p{
+    position: absolute;
+    background-color: beige;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#bonPlans p{
+    position: absolute;
+    background-color: beige;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 768px){
+
+    .pagehomecenter{
+        width: 90%;
+        max-width: 1200px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #association div{
+        height: 350px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+
+    }
+    #bonPlans div{
+        border-left: initial;
+        height: 350px;
+        width: 350px;
+        rotate: 0deg;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+    }
+
+}
+
+@media screen and (min-width: 1050px){
+    .pagehomecenter{
+        height: calc(100vh - 84px);
+    }
+    #association div{
+        height: 400px;
+        width: 470px;
+        border-radius: 10px;
+
+    }
+    #bonPlans div{
+        height: 400px;
+        width: 470px;
+        border-radius: 10px;
+    }
+
+    #association p{
+    }
+
+    #bonPlans p{
+    }
+}

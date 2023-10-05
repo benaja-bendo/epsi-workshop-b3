@@ -11,6 +11,7 @@ class BonPlanController extends Controller
 {
     public function list()
     {
+
         $BonPlans = \App\Models\BonPlan::all();
         $categories = \App\Models\Category::all();
         //dd($BonPlan, $categories);
