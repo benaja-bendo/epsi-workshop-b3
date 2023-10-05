@@ -9,6 +9,7 @@ export default function Description ({association}) {
             <div>
                 <img className={"logo"} src={logo} alt={`logo représentant la marque ${name}`}/>
                 <h1>{name}</h1>
+                <p>{author}</p>
                 <p>{description}</p>
             </div>
         </section>

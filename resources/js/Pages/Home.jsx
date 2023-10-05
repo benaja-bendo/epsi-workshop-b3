@@ -9,24 +9,22 @@ export default function Home({auth}) {
     return (<>
         <SiteLayout auth={auth}>
             <Head title="Accueil"/>
-
             <section id={"home"}>
-        <div className={"pagehomecenter"}>
-            <Link id={"association"} href={route('associations.list')} as='a'>
-                <div>
-                    <img src={asso} alt={"image représentant des étudiants qui discutes"}/>
-                    <p>Association</p>
+                <div className={"pagehomecenter"}>
+                    <Link id={"association"} href={route('associations.list')} as='a'>
+                    <div>
+                        <img src={asso} alt={"image représentant des étudiants qui discutes"}/>
+                        <p>Association</p>
+                    </div>
+                    </Link>
+                    <Link id={"bonPlans"} href={route('BonPlan.list')} as='a'>
+                    <div>
+                        <img src={bpimg} alt={"image représentant des étudiants qui discutes"}/>
+                        <p>Bon Plans</p>
+                    </div>
+                    </Link>
                 </div>
-            </Link>
-            <Link id={"bonPlans"} href={route('BonPlan.list')} as='a'>
-
-                <div>
-                    <img src={bpimg} alt={"image représentant des étudiants qui discutes"}/>
-                    <p>Bon Plans</p>
-                </div>
-            </Link>
-        </div>
-    </section>
+            </section>
         </SiteLayout>
     </>);
 }
