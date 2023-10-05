@@ -134,7 +134,7 @@ export default function ListAssociations(props) {
 const CardAssociation = ({association}) => {
     const {name, description, image, logo} = association;
     return (
-        <Link href={''}>
+        <Link href={'/association/show/' + association.id}>
             <div className={"cardCarouselHome"}>
                 <img className={"cardCarouselImage"} src={image} alt={`image de fond ${name}`}/>
                 <div className={"cardCarouselDescriptionLogo"}>

@@ -80,7 +80,10 @@ class AssociationController extends Controller
      */
     public function show(string $id)
     {
-
+        $association = Association::findOrfail($id);
+        return Inertia::render('ShowAssociation', [
+            'association' => $association,
+        ]);
     }
 
     /**

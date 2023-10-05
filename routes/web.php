@@ -54,7 +54,7 @@ Route::post('/associations/create', [AssociationController::class, 'store'])->na
 Route::get('/associations/edit/{id}', [AssociationController::class, 'edit'])->name('associations.edit');
 Route::put('/associations/edit/{id}', [AssociationController::class, 'update'])->name('associations.update');
 Route::delete('/associations/delete/{id}', [AssociationController::class, 'destroy'])->name('associations.destroy');
-//Route::get('/association/{id}', [AssociationController::class, 'show'])->name('association.show');
+Route::get('/association/show/{id}', [AssociationController::class, 'show'])->name('association.show');
 
 
 Route::get('/associations/list', [AssociationController::class, 'list'])->name('associations.list');
