@@ -34,6 +34,8 @@ Route::post('/BonPlan/create', [BonPlanController::class, 'store'])->name('BonPl
 Route::get('/BonPlan/edit/{id}', [BonPlanController::class, 'edit'])->name('BonPlan.edit');
 Route::put('/BonPlan/edit/{id}', [BonPlanController::class, 'update'])->name('BonPlan.update');
 Route::delete('/BonPlan/delete/{id}', [BonPlanController::class, 'destroy'])->name('BonPlan.destroy');
+Route::get('/BonPlan/show/{id}', [BonPlanController::class, 'show'])->name('BonPlan.show');
+
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
@@ -52,6 +54,8 @@ Route::post('/associations/create', [AssociationController::class, 'store'])->na
 Route::get('/associations/edit/{id}', [AssociationController::class, 'edit'])->name('associations.edit');
 Route::put('/associations/edit/{id}', [AssociationController::class, 'update'])->name('associations.update');
 Route::delete('/associations/delete/{id}', [AssociationController::class, 'destroy'])->name('associations.destroy');
+//Route::get('/association/{id}', [AssociationController::class, 'show'])->name('association.show');
+
 
 Route::get('/associations/list', [AssociationController::class, 'list'])->name('associations.list');
 Route::get('/BonPlan/list', [BonPlanController::class, 'list'])->name('BonPlan.list');

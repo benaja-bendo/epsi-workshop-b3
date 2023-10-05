@@ -14,7 +14,6 @@ class BonPlanController extends Controller
 
         $BonPlans = \App\Models\BonPlan::all();
         $categories = \App\Models\Category::all();
-        //dd($BonPlan, $categories);
         return Inertia::render('ListBonPlan', [
             'BonPlans' => $BonPlans,
             'categories' => $categories
@@ -75,7 +74,10 @@ class BonPlanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $BonPlan = BonPlan::findOrfail($id);
+        return Inertia::render('ShowBonPlan', [
+            'BonPlan' => $BonPlan,
+        ]);
     }
 
     /**

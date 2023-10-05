@@ -201,3 +201,79 @@ main{
     }
 }
 
+#description{
+    height: calc(100vh - 72px);
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#description .imagePrincipal{
+    object-fit: cover;
+    width: 100%;
+    height: 110px;
+}
+
+#description .logo{
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+    object-fit: cover;
+    width: 90px;
+    height: 90px;
+    padding: 5px;
+    border-bottom: #e8e8e8 2px solid;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#description div{
+    box-shadow: 0 0 10px #5d5d5d;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: calc(100%  - 100px);;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+}
+
+#description h1{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#description p{
+    border-top: #e8e8e8 2px solid;
+    padding-top: 10px;
+    margin: 10px 10px;
+}
+
+@media screen and (min-width: 768px){
+    #description p{
+        margin: 10px 20px;
+    }
+    #description div{
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+}
+@media screen and (min-width: 1050px){
+    #description{
+        height: calc(100vh - 84px);
+    }
+    #description .imagePrincipal{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    #description div{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        width: 80%;
+        max-width: 1200px;
+    }
+}
+

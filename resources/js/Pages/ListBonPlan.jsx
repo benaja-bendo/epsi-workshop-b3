@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import {Head, Link} from "@inertiajs/react";
 import SiteLayout from "@/Layouts/SiteLayout.jsx";
 import MyMap from "@/Components/MyMap.jsx";
+import BonPlan from "./BonPlan";
 
 
 export default function ListBonPlan(props) {
@@ -140,7 +141,7 @@ return (<>
 const CardBonPlan = ({bonPlan}) => {
     const {name, description, image} = bonPlan;
     return (
-        <Link href={''}>
+        <Link href={'/BonPlan/show/' + bonPlan.id}>
             <div className={"cardCarouselHome"}>
                 <img className={"cardCarouselImage"} src={image} alt={`image de fond ${name}`}/>
                 <div className={"cardCarouselDescriptionLogo"}>
