@@ -24,11 +24,10 @@ export default function Category(props) {
 
         >
         <h1>
-            Category
         </h1>
         <Link href={"/categories/create"}>
             <button className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"}>
-                Create
+                Create category 
             </button>
         </Link>
         <div>

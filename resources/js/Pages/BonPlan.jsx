@@ -23,11 +23,10 @@ export default function BonPlan(props) {
  
         >
         <h1>
-        BonPlan
         </h1>
         <Link href={"/BonPlan/create"}>
             <button className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"}>
-                Create
+                Create bon plan
             </button>
         </Link>
         <div>
