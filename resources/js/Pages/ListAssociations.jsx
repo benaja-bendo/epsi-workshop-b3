@@ -64,6 +64,12 @@ export default function ListAssociations(props) {
         <SiteLayout auth={auth}>
             <Head title="Liste des associations"/>
             <div className="flex flex-col justify-center items-center ">
+            <input className={"search"}
+                        type="text"
+                        placeholder="Rechecher un nom"
+                        value={rechercheTerm}
+                        onChange={handleRechercheChange}
+                    />
                 <MyMap/>
                 <div className="relative">
                     <h1 className="text-3xl font-bold text-center">Liste des associations</h1>
@@ -81,12 +87,6 @@ export default function ListAssociations(props) {
                             />
                         ))}
                     </div>
-                    <input className={"search"}
-                        type="text"
-                        placeholder="Rechecher un nom"
-                        value={rechercheTerm}
-                        onChange={handleRechercheChange}
-                    />
                     <div id={'card'} className="">
                         {filteredAssociations.map((association) => (
                             <CardAssociation key={association.id} association={association}/>
