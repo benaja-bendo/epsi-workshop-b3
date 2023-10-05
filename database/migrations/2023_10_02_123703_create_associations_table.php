@@ -19,6 +19,10 @@ return new class extends Migration
             $table->longText('description');
             $table->text('image');
             $table->text('logo');
+            $table->boolean('is_active')->default(true);
+            $table->string('site-web')->nullable();
+            $table->string('number')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }
