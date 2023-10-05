@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Head, Link} from "@inertiajs/react";
 import SiteLayout from "@/Layouts/SiteLayout.jsx";
 import MyMap from "@/Components/MyMap.jsx";
+import "../../css/home.css"
 
 export default function ListAssociations(props) {
 
@@ -10,7 +11,7 @@ export default function ListAssociations(props) {
     const [selectedCategory, setSelectedCategory] = React.useState(0);
     const [filteredAssociations, setFilteredAssociations] = React.useState(associations);
 
-    const [nombreDeResultats, setNombreDeResultats] = useState(5); // By default, show 5 results
+    const [nombreDeResultats, setNombreDeResultats] = useState(6); // By default, show 6 results
     const [startIndex, setStartIndex] = useState(0); // Starting index for slicing
     const handleRechercheChange = (e) => {
         setRechercheTerm(e.target.value);
@@ -70,14 +71,12 @@ export default function ListAssociations(props) {
                         value={rechercheTerm}
                         onChange={handleRechercheChange}
                     />
-                <MyMap/>
                 <div className="relative">
                     <h1 className="text-3xl font-bold text-center">Liste des associations</h1>
                     <p className="text-lg">Filtrer par catégorie :</p>
-                    <div className="flex items-center gap-2">
+                    <div className="filtreDeCategorie">
                         <button
-                            onClick={() => setSelectedCategory(0)}
-                            className={"border p-2 rounded-lg"}>Toutes
+                            onClick={() => setSelectedCategory(0)}>Toutes
                         </button>
                         {categories.map((category) => (
                             <CardCategory
@@ -88,13 +87,13 @@ export default function ListAssociations(props) {
                         ))}
                     </div>
                     <div id={'card'} className="">
-                        {filteredAssociations.map((association) => (
+                        {filteredAssociations.slice(startIndex, startIndex + nombreDeResultats).map((association) => (
                             <CardAssociation key={association.id} association={association}/>
                         ))}
                     </div>
                     <div className={"printPage"}>
               <select onChange={handleSelectChange} value={nombreDeResultats}>
-                  <option value={3}>Afficher 6 résultats</option>
+                  <option value={6}>Afficher 6 résultats</option>
                   <option value={12}>Afficher 12 résultats</option>
                   <option value={24}>Afficher 24 résultats</option>
               </select>
@@ -150,7 +149,6 @@ const CardCategory = ({category, setSelectedCategory}) => {
     const {name} = category;
     return (<>
         <button
-            onClick={() => setSelectedCategory(category.id)}
-            className={"border p-2 rounded-lg"}>{name}</button>
+            onClick={() => setSelectedCategory(category.id)}>{name}</button>
     </>);
 }

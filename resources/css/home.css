@@ -10,6 +10,56 @@
     position: absolute;
     display: flex;
 }
+
+header nav div a{
+    margin: 5px;
+}
+.filtreDeCategorie{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.printPage{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.printPage .changePage{
+    display: flex;
+    align-items: center;
+}
+.changePage p{
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+.printPage select{
+    border: #5E17EB 2px solid;
+    border-radius: 5px;
+}
+.changePage button{
+    background-color: #5E17EB;
+    color: white;
+    margin: 3px;
+    padding: 3px;
+    border-radius: 5px;
+    height: 34px;
+}
+.filtreDeCategorie button{
+    border: #5E17EB 2px solid;
+    margin: 3px;
+    padding: 3px;
+    border-radius: 5px;
+}
+.filtreDeCategorie button:hover{
+    background-color: #5E17EB;
+    color: white;
+}
 #home img{
     object-fit: cover;
     position: absolute;

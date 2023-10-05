@@ -22,42 +22,42 @@ export default function SiteLayout(props) {
           <nav>
               <Link href={`/`}>
                   <img className={"logoSite"} src={logoSite} alt={"logo du site Assos & Goodies"}/>
-                  <div className="hidden lg:flex gap-5 items-center">
-                        {/*<a href="/" className="hover:text-purple-600">*/}
-                        {/*    Connexion*/}
-                        {/*</a>*/}
-                        {/*<a href="/" className="text-white bg-purple-600 px-5 py-1 rounded">*/}
-                        {/*    S'inscrire*/}
-                        {/*</a>*/}
-                        {auth.user ? (
-                            <Link
-                                href={route('dashboard')}
-                                className="hover:text-purple-600"
-                                // className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            >
-                                Dashboard
-                            </Link>
-                        ) : (
-                            <>
-                                <Link
-                                    href={route('login')}
-                                    // className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                    className="text-white bg-purple-600 px-5 py-1 rounded"
-                                >
-                                    Log in
-                                </Link>
-
-                                <Link
-                                    href={route('register')}
-                                    className="text-white bg-purple-600 px-5 py-1 rounded"
-                                    // className="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                >
-                                    Register
-                                </Link>
-                            </>
-                        )}
-                  </div>
               </Link>
+              <div className="lg:flex gap-5 items-center">
+                  {/*<a href="/" className="hover:text-purple-600">*/}
+                  {/*    Connexion*/}
+                  {/*</a>*/}
+                  {/*<a href="/" className="text-white bg-purple-600 px-5 py-1 rounded">*/}
+                  {/*    S'inscrire*/}
+                  {/*</a>*/}
+                  {auth.user ? (
+                      <Link
+                          href={route('dashboard')}
+                          className="hover:text-purple-600"
+                          // className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                      >
+                          Dashboard
+                      </Link>
+                  ) : (
+                      <>
+                          <Link
+                              href={route('login')}
+                              // className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                              className="text-white bg-purple-600 px-5 py-1 rounded"
+                          >
+                              Log in
+                          </Link>
+
+                          <Link
+                              href={route('register')}
+                              className="text-white bg-purple-600 px-5 py-1 rounded"
+                              // className="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                          >
+                              Register
+                          </Link>
+                      </>
+                  )}
+              </div>
           </nav>
       </header>
             <div className="flex-1">

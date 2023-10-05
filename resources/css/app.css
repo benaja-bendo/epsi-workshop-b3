@@ -7,6 +7,9 @@ header{
     width: 100%;
     padding: 10px;
 }
+header a{
+
+}
 nav{
     display: flex;
     justify-content: space-between;
