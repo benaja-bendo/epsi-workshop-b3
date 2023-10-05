@@ -1,3 +1,203 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.search{
+    position: absolute;
+    top: 24px;
+
+    border: #5E17EB 2px solid;
+    border-radius: 5px;
+    padding: 3px;
+}
+#card{
+    max-width: 1200px;
+
+}
+@media screen and (min-width: 768px){
+    #card{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width: 1050px){
+    #card{
+        justify-content: space-around;
+    }
+}
+
+#card{
+    width: 100%;
+}
+
+#card .cardCarouselHome{
+    margin-left: 5%;
+    margin-top: 20px;
+    height: 400px;
+    width: 90%;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 5px #b7b6b6;
+}
+
+#card .cardCarouselImage{
+    width: 100%;
+    height: 40%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+}
+#card .cardCarouselDescriptionLogo{
+    height: 90px;
+    z-index: 3;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+#card .cardCarouselLogo{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    background-color: white;
+    top: -50px;
+    padding: 10px;
+    border-radius: 5px;
+    border-bottom: #e8e8e8 2px solid;
+}
+
+#card .cardCarouselDescription{
+    margin-top: 100px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media screen and (min-width: 768px){
+
+    #card .cardCarouselHome{
+        width: 380px;
+        margin: 10px;
+    }
+}
+
+#home{
+    display: flex;
+    justify-content: center;
+}
+
+.pagehomecenter{
+    height: calc(100vh - 72px);
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+}
+#home img{
+    object-fit: cover;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+
+}
+#association div{
+    height: 100vh;
+    width: 50vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+}
+
+#bonPlans div{
+    border-left: white 4px solid;
+    margin-left: -2px;
+    height: 100vh;
+    width: 50vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+}
+
+#association p{
+    position: absolute;
+    background-color: beige;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#bonPlans p{
+    position: absolute;
+    background-color: beige;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 768px){
+
+    .pagehomecenter{
+        width: 90%;
+        max-width: 1200px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #association div{
+        height: 350px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+
+    }
+    #bonPlans div{
+        border-left: initial;
+        height: 350px;
+        width: 350px;
+        rotate: 0deg;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+    }
+
+}
+
+@media screen and (min-width: 1050px){
+    .pagehomecenter{
+        height: calc(100vh - 84px);
+    }
+    #association div{
+        height: 400px;
+        width: 470px;
+        border-radius: 10px;
+
+    }
+    #bonPlans div{
+        height: 400px;
+        width: 470px;
+        border-radius: 10px;
+    }
+
+    #association p{
+    }
+
+    #bonPlans p{
+    }
+}
+
