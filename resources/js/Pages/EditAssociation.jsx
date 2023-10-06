@@ -1,7 +1,7 @@
 import {Link, Head, router, useForm} from "@inertiajs/react";
 import {useState} from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-
+import "../../css/home.css"
 
 export default function EditAssociation(props) {
   const { association, categories,auth } = props;
@@ -27,11 +27,11 @@ export default function EditAssociation(props) {
             user={auth.user}
             header={<h2
                 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"></h2>
-                
+
             }
         >
       <Head title="Association - Update" />
-      <form onSubmit={handleSubmit}>
+      <form className={"uoeza"} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name</label>
           <input
@@ -83,4 +83,3 @@ export default function EditAssociation(props) {
   </>
     );
 }
- 

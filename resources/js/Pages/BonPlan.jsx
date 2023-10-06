@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, useForm } from "@inertiajs/react";
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-export default function BonPlan(props) {
+import "../../css/home.css"
 
+export default function BonPlan(props) {
     const {
         data, setData, delete: destroy,
     } = useForm({});
@@ -20,7 +21,7 @@ export default function BonPlan(props) {
                 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Bons Plans</h2>
 
             }
- 
+
         >
         <h1>
         </h1>
@@ -32,15 +33,15 @@ export default function BonPlan(props) {
         <div>
             {bonplans.map((BonPlan, index) => {
                 return (<div key={index} className={"flex justify-between items-center border-b border-gray-300 py-4"}>
-                    <p>{BonPlan.name}</p>
-                    <div className={"flex"}>
+                    <p className={"heycpasouf"}>{BonPlan.name}</p>
+                    <div className={"ouiOnEspaceUnPeu"}>
                         <Link href={"/BonPlan/edit/" + BonPlan.id}>
                             <button
                                 className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"}>
                                 Edit
                             </button>
                         </Link>
-                        
+
                         <button onClick={() => destroyBonPlan(BonPlan.id)}
                                 className={"bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"}>
                             Delete
@@ -52,5 +53,5 @@ export default function BonPlan(props) {
         </div>
         </AuthenticatedLayout>
     </>);
-   
+
 }

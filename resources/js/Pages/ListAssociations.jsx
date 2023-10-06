@@ -75,8 +75,8 @@ export default function ListAssociations(props) {
                     <h1 className="text-3xl font-bold text-center">Liste des associations</h1>
                     <p className="text-lg">Filtrer par catégorie :</p>
                     <div className="filtreDeCategorie">
-                        <button
-                            onClick={() => setSelectedCategory(0)}>Toutes
+                        <button onClick={() => setSelectedCategory(0)}>
+                            Toutes
                         </button>
                         {categories.map((category) => (
                             <CardCategory
@@ -101,7 +101,6 @@ export default function ListAssociations(props) {
               <div className={"changePage"}>
 
                   <button
-                      className={'rotateArrow'}
                       onClick={handlePreviousClick}
                       disabled={startIndex === 0}
                   >

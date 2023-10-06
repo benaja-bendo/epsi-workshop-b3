@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, useForm} from "@inertiajs/react";
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-
+import "../../css/home.css"
 
 export default function Category(props) {
     const {
@@ -19,7 +19,7 @@ export default function Category(props) {
             user={auth.user}
             header={<h2
                 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"></h2>
-                
+
             }
 
         >
@@ -27,14 +27,14 @@ export default function Category(props) {
         </h1>
         <Link href={"/categories/create"}>
             <button className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"}>
-                Create category 
+                Create category
             </button>
         </Link>
-        <div>
+        <div className={"flexCategories"}>
             {categories.map((category, index) => {
                 return (<div key={index} className={"flex justify-between items-center border-b border-gray-300 py-4"}>
-                    <p>{category.name}</p>
-                    <div className={"flex"}>
+                    <p className={"heycpasouf"}>{category.name}</p>
+                    <div className={"ouiOnEspaceUnPeu"}>
                         <Link href={"/categories/edit/" + category.id}>
                             <button
                                 className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"}>

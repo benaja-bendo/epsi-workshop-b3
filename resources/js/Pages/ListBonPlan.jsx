@@ -1,4 +1,3 @@
-
 import React, {useState} from "react";
 import {Head, Link} from "@inertiajs/react";
 import SiteLayout from "@/Layouts/SiteLayout.jsx";
@@ -8,7 +7,7 @@ import BonPlan from "./BonPlan";
 
 export default function ListBonPlan(props) {
 
-    const {auth, BonPlans, categories} = props;  
+    const {auth, BonPlans, categories} = props;
     const [rechercheTerm, setRechercheTerm] = useState('');
     const [nombreDeResultats, setNombreDeResultats] = useState(5); // By default, show 5 results
     const [startIndex, setStartIndex] = useState(0); // Starting index for slicing
@@ -20,7 +19,7 @@ export default function ListBonPlan(props) {
      // Determine whether to print the "Next" and "Previous" buttons
      const printNextButton = startIndex + nombreDeResultats < BonPlans.length;
      const printPrevButton = startIndex > 0;
-           
+
      const [selectedCategory, setSelectedCategory] = React.useState(0);
      const [filteredBonPlans, setFilteredbonPlans] = React.useState(BonPlans);
      const filterbonPlansByCategory = (categoryId) => {
@@ -32,7 +31,7 @@ export default function ListBonPlan(props) {
          }
      };
 
-    
+
     // Filter the data based on the search term
     const assoBPSearch = BonPlans.filter((item) =>
         item.name.toLowerCase().includes(rechercheTerm.toLowerCase())
@@ -59,8 +58,7 @@ export default function ListBonPlan(props) {
     const currentPage = Math.ceil((startIndex + 1) / nombreDeResultats);
     const totalPages = Math.ceil(BonPlans.length / nombreDeResultats);
 
-   
-   
+
 React.useEffect(() => {
     filterbonPlansByCategory(selectedCategory);
 }, [selectedCategory, BonPlans]);
@@ -75,14 +73,12 @@ return (<>
                    value={rechercheTerm}
                    onChange={handleRechercheChange}
                 />
-            <MyMap/>
             <div className="relative">
                 <h1 className="text-3xl font-bold text-center">Liste des bons plans</h1>
                 <p className="text-lg">Filtrer par bons plans :</p>
-                <div className="flex items-center gap-2">
-                    <button
-                        onClick={() => setSelectedCategory(0)}
-                        className={"border p-2 rounded-lg"}>Toutes
+                <div className="filtreDeCategorie">
+                    <button onClick={() => setSelectedCategory(0)}>
+                        Toutes
                     </button>
                     {categories.map((category) => (
                         <CardCategory
@@ -93,13 +89,13 @@ return (<>
                     ))}
                 </div>
                 <div id={'card'} className="">
-                    {filteredBonPlans.map((bonPlan) =>  (
+                    {filteredBonPlans.slice(startIndex, startIndex + nombreDeResultats).map((bonPlan) =>  (
                         <CardBonPlan key={bonPlan.id} bonPlan={bonPlan}/>
                     ))}
                 </div>
                 <div className={"printPage"}>
                 <select onChange={handleSelectChange} value={nombreDeResultats}>
-                    <option value={3}>Afficher 6 résultats</option>
+                    <option value={6}>Afficher 6 résultats</option>
                     <option value={12}>Afficher 12 résultats</option>
                     <option value={24}>Afficher 24 résultats</option>
                 </select>
@@ -107,7 +103,6 @@ return (<>
                 <div className={"changePage"}>
 
                     <button
-                        className={'rotateArrow'}
                         onClick={handlePreviousClick}
                         disabled={startIndex === 0}
                     >
@@ -158,6 +153,6 @@ const CardCategory = ({category, setSelectedCategory}) => {
         <button
             onClick={() => setSelectedCategory(category.id)}
             className={"border p-2 rounded-lg"}>{name}</button>
-    </>);   
+    </>);
 
 }
