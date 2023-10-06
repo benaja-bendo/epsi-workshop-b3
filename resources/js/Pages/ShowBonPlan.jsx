@@ -1,9 +1,11 @@
+import SiteLayout from "@/Layouts/SiteLayout";
 import React from "react";
 
-export default function Description ({BonPlan}) {
+export default function Description ({BonPlan, auth}) {
     console.log(BonPlan);
     const {image, name, description} = BonPlan;
     return (
+        <SiteLayout auth = {auth}>
         <section id={"description"}>
             <img className={"imagePrincipal"} src={image} alt={`image de fond représentant la marque ${name}`}/>
             <div>
@@ -12,5 +14,6 @@ export default function Description ({BonPlan}) {
                 <p>{description}</p>
             </div>
         </section>
+        </SiteLayout>
     )
 }

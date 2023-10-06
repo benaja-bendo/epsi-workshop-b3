@@ -1,10 +1,11 @@
 import React from "react";
 import SiteLayout from "@/Layouts/SiteLayout.jsx";
 
-export default function Description ({association}) {
+export default function Description ({association, auth}) {
     console.log(association);
     const {image, name, description, logo, author} = association;
     return (
+        <SiteLayout auth = {auth}>
             <section id={"description"}>
                 <img className={"imagePrincipal"} src={image} alt={`image de fond représentant la marque ${name}`}/>
                 <div>
@@ -14,5 +15,7 @@ export default function Description ({association}) {
                     <p>{description}</p>
                 </div>
             </section>
+            </SiteLayout>
+
     )
 }
